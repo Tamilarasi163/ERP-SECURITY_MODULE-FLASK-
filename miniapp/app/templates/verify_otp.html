@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Verify OTP - Mini ERP{% endblock %}
+
+{% block content %}
+<div class="container mt-5" style="max-width: 500px;">
+    <div class="card shadow">
+        <div class="card-body">
+            <h3 class="card-title text-center mb-4">Verify OTP</h3>
+            <form method="POST" action="{{ url_for('auth.verify_otp') }}">
+                <input type="hidden" name="email" value="{{ email }}">
+
+                <div class="mb-3">
+                    <label for="otp" class="form-label">One-Time Password (OTP)</label>
+                    <input type="text" class="form-control" id="otp" name="otp" placeholder="Enter OTP" required>
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success">Verify</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
